@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تسجيل دخول متطور</title>
+    <title>تسجيل دخول </title>
     <style>
         * {
             margin: 0;
@@ -18,10 +18,9 @@
             justify-content: center;
             align-items: center;
             background: #0a0a0a;
-            overflow: hidden;
+            overflow-x: hidden;
             position: relative;
         }
-
 
         .nebula-effect {
             position: absolute;
@@ -42,35 +41,9 @@
             100% { transform: rotate(360deg); }
         }
 
-        .particles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-
-        .particle {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            animation: particle-float 20s infinite;
-        }
-
-        @keyframes particle-float {
-            0%, 100% { 
-                transform: translateY(0) scale(0.5);
-                opacity: 0;
-            }
-            50% { 
-                transform: translateY(-100vh) scale(1.2);
-                opacity: 0.8;
-            }
-        }
-
-
         .glass-card {
             position: relative;
-            width: 90%;
+            width: 95%;
             max-width: 1000px;
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(15px);
@@ -81,202 +54,150 @@
             grid-template-columns: 1fr 1fr;
             overflow: hidden;
             z-index: 2;
-            transition: 0.5s;
+            margin: 20px;
         }
-
-        .glass-card:hover {
-            box-shadow: 0 35px 55px rgba(0, 0, 0, 0.4);
-            transform: translateY(-10px);
-        }
-
 
         .welcome-section {
-            padding: 50px;
-            background: linear-gradient(
-                45deg,
-                rgba(106, 17, 203, 0.3),
-                rgba(37, 117, 252, 0.3)
-            );
-            position: relative;
-            overflow: hidden;
-        }
-
-        .welcome-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                45deg,
-                transparent,
-                rgba(255, 255, 255, 0.1),
-                transparent
-            );
-            animation: light-sweep 8s infinite;
-        }
-
-        @keyframes light-sweep {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .welcome-content {
-            position: relative;
-            z-index: 1;
-            color: white;
+            padding: 40px;
+            background: linear-gradient(45deg, rgba(106, 17, 203, 0.3), rgba(37, 117, 252, 0.3));
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
         }
 
         .welcome-content h1 {
-            font-size: 2.8rem;
-            margin-bottom: 25px;
-            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 20px;
         }
 
         .welcome-content p {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            opacity: 0.9;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
         }
 
-
         .form-section {
-            padding: 50px;
+            padding: 40px;
             background: rgba(255, 255, 255, 0.03);
         }
 
         .form-group {
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .form-group label {
             display: block;
             color: rgba(255, 255, 255, 0.9);
             margin-bottom: 10px;
-            font-size: 1.1rem;
+            font-size: 0.9rem;
         }
 
         .form-group input {
             width: 100%;
-            padding: 15px;
+            padding: 12px;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
+            border-radius: 8px;
             color: white;
-            font-size: 1rem;
-            transition: 0.3s;
-        }
-
-        .form-group input:focus {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(106, 17, 203, 0.5);
-            outline: none;
-            box-shadow: 0 0 15px rgba(106, 17, 203, 0.2);
+            font-size: 0.9rem;
         }
 
         .login-options {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin: 30px 0;
+            margin: 25px 0;
         }
 
         .remember-me {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             color: rgba(255, 255, 255, 0.8);
+            font-size: 0.8rem;
         }
 
         .back-link {
             color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
-            transition: 0.3s;
-            position: relative;
-        }
-
-        .back-link:hover {
-            color: white;
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+            font-size: 0.8rem;
         }
 
         .login-btn {
-            background: linear-gradient(
-                45deg,
-                rgba(106, 17, 203, 0.8),
-                rgba(37, 117, 252, 0.8)
-            );
-            color: white;
-            padding: 18px;
             width: 100%;
+            padding: 12px;
+            background: linear-gradient(45deg, rgba(106, 17, 203, 0.8), rgba(37, 117, 252, 0.8));
+            color: white;
             border: none;
-            border-radius: 12px;
-            font-size: 1.2rem;
+            border-radius: 8px;
             cursor: pointer;
-            transition: 0.3s;
-            position: relative;
-            overflow: hidden;
         }
 
-        .login-btn::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                45deg,
-                transparent,
-                rgba(255, 255, 255, 0.2),
-                transparent
-            );
-            transform: rotate(45deg);
-            animation: btn-glow 3s infinite;
+        /* تحسينات للجوال */
+        @media (max-width: 768px) {
+            .glass-card {
+                grid-template-columns: 1fr;
+                width: 90%;
+                margin: 15px;
+            }
+
+            .welcome-section {
+                padding: 30px 20px;
+            }
+
+            .welcome-content h1 {
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+            }
+
+            .welcome-content p {
+                font-size: 0.9rem;
+            }
+
+            .form-section {
+                padding: 30px 20px;
+            }
+
+            .form-group input {
+                padding: 10px;
+                font-size: 0.8rem;
+            }
+
+            .login-btn {
+                padding: 10px;
+                font-size: 0.9rem;
+            }
         }
 
-        @keyframes btn-glow {
-            0% { transform: translateX(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) rotate(45deg); }
-        }
+        @media (max-width: 480px) {
+            .welcome-section {
+                padding: 25px 15px;
+            }
 
-        .login-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(106, 17, 203, 0.4);
+            .form-section {
+                padding: 25px 15px;
+            }
+
+            .login-options {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
         }
     </style>
 </head>
 <body>
     <div class="nebula-effect"></div>
-    
-
-    <div class="particles">
-        <script>
-            function createParticles() {
-                const container = document.querySelector('.particles');
-                for (let i = 0; i < 50; i++) {
-                    const particle = document.createElement('div');
-                    particle.className = 'particle';
-                    particle.style.left = Math.random() * 100 + '%';
-                    particle.style.width = particle.style.height = 
-                        Math.random() * 3 + 2 + 'px';
-                    particle.style.animationDelay = Math.random() * 20 + 's';
-                    container.appendChild(particle);
-                }
-            }
-            createParticles();
-        </script>
-    </div>
 
     <div class="glass-card">
         <div class="welcome-section">
             <div class="welcome-content">
-                <h1>مرحبًا بعودتك! ✨</h1>
+                <h1>مرحبًا بعودتك! 👋</h1>
                 <p>
-                    نُشر أبواب المستقبل معنا<br>
-                    سجل دخولك لاستئناف رحلتك
+                    يسعدنا رؤيتك مجددًا،<br>
+                    الرجاء إدخال بيانات الدخول الخاصة بك
                 </p>
             </div>
         </div>
