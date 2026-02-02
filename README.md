@@ -42,5 +42,5 @@ This project is open-source and available for customization.
 
 ## Author
 
-Developed by [Ali Firas].
+Developed by Ali Firas.
 
